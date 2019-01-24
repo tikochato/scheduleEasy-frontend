@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import MUIDataTable from 'mui-datatables';
 
 const styles = theme => ({
@@ -13,8 +10,6 @@ const styles = theme => ({
     overflowX: 'auto',
   },
 });
-
-const columns = ['Id', 'Nombre'];
 
 const options = {
   filterType: 'checkbox',
@@ -58,24 +53,16 @@ const options = {
 export class TableView extends Component {
   static propTypes = {
     classes: PropTypes.object.isRequired,
-    personas: PropTypes.array.isRequired,
+    columns: PropTypes.array.isRequired,
+    data: PropTypes.array.isRequired,
   };
 
   render() {
-
     return (
-      <div className="personas-table-view">
-        <AppBar position="static" color="default">
-          <Toolbar>
-            <Typography variant="h6" color="inherit">
-              Listado de Personas
-            </Typography>
-          </Toolbar>
-        </AppBar>
-        <br/>
+      <div className="common-table-view">
         <MUIDataTable
-          data={this.props.personas}
-          columns={columns}
+          data={this.props.data}
+          columns={this.props.columns}
           options={options}
         />
       </div>

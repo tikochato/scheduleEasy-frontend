@@ -4,22 +4,29 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actions from './redux/actions';
 import Menu from '../home/Menu';
-import PersonasListView from './PersonasListView';
+import ReunionesView from './ReunionesView';
 
-export class PersonasList extends Component {
+export class Reuniones extends Component {
   static propTypes = {
-    personas: PropTypes.object.isRequired,
+    reuniones: PropTypes.object.isRequired,
     actions: PropTypes.object.isRequired,
   };
 
   componentDidMount() {
-    this.props.actions.fetchPersonas();
+    this.props.actions.fetchReuniones();
   }
 
   render() {
     return (
-      <div className="personas-personas-list">
-        <Menu body={<PersonasListView personas={this.props.personas.personas} />} />
+      <div className="reuniones-reuniones">
+        <Menu
+          body={
+            <ReunionesView
+              reuniones={this.props.reuniones.data}
+              columns={this.props.reuniones.columns}
+            />
+          }
+        />
       </div>
     );
   }
@@ -28,7 +35,7 @@ export class PersonasList extends Component {
 /* istanbul ignore next */
 function mapStateToProps(state) {
   return {
-    personas: state.personas,
+    reuniones: state.reuniones,
   };
 }
 
@@ -42,4 +49,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(PersonasList);
+)(Reuniones);

@@ -12,7 +12,9 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import CatalogosIcon from '@material-ui/icons/ViewList';
+import PersonasIcon from '@material-ui/icons/Face';
+import ReunionesIcon from '@material-ui/icons/DateRange';
+import ReporteIcon from '@material-ui/icons/InsertChart';
 
 const drawerWidth = 240;
 
@@ -68,13 +70,15 @@ export class MenuView extends Component {
               <NavLink to="/personas" style={{ textDecoration: 'none' }}>
                 <ListItem button>
                   <ListItemIcon>
-                    <CatalogosIcon />
+                    <PersonasIcon />
                   </ListItemIcon>
                   <ListItemText primary="Personas" />
                 </ListItem>
+              </NavLink>
+              <NavLink to="/reuniones" style={{ textDecoration: 'none' }}>
                 <ListItem button>
                   <ListItemIcon>
-                    <CatalogosIcon />
+                    <ReunionesIcon />
                   </ListItemIcon>
                   <ListItemText primary="Reuniones" />
                 </ListItem>
@@ -82,12 +86,14 @@ export class MenuView extends Component {
             </List>
             <Divider />
             <List>
-              <ListItem button>
-                <ListItemIcon>
-                  <CatalogosIcon />
-                </ListItemIcon>
-                <ListItemText primary="Reporte" />
-              </ListItem>
+              <NavLink to="/reporte" style={{ textDecoration: 'none' }}>
+                <ListItem button>
+                  <ListItemIcon>
+                    <ReporteIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Reporte" />
+                </ListItem>
+              </NavLink>
             </List>
           </Drawer>
           <main className={classes.content}>
