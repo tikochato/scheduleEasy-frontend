@@ -25,6 +25,7 @@ export function fetchPersonas(args = {}) {
       // doRequest is a placeholder Promise. You should replace it with your own logic.
       // See the real-word example at:  https://github.com/supnate/rekit/blob/master/src/features/home/redux/fetchRedditReactjsList.js
       // args.error here is only for test coverage purpose.
+      console.log(SERVER_PATH);
       const doRequest = axios.get(SERVER_PATH+'users/getAllArray', AXIOS_CONFIG);
       doRequest.then(
         (res) => {
